@@ -8,6 +8,7 @@ import "regenerator-runtime/runtime"; // Required for async/await to work with B
 
 function App() {
   const [timeOfDayBucket, setTimeOfDayBucket] = useState("");
+  const [isVideoStarted, setIsVideoStarted] = useState(false);
 
   useEffect(() => {
     async function initializeTimeOfDayBucket() {
@@ -25,7 +26,7 @@ function App() {
   async function getTimeOfDayBucket() {
     const southernCaliforniaCoordinates = {
       latitude: 34.052235,
-      longitude: -118.243683
+      longitude: -118.243683,
     };
 
     const currentDate = new Date();
@@ -91,7 +92,7 @@ function App() {
   async function getTimeOfDayData(date = new Date()) {
     const southernCaliforniaCoordinates = {
       latitude: 34.052235,
-      longitude: -118.243683
+      longitude: -118.243683,
     };
 
     const formattedDate = date.toISOString().split("T")[0];
@@ -105,8 +106,8 @@ function App() {
 
   return (
     <div className="App">
-      <VideoPlayer />
-      <AudioPlayer timeOfDayBucket={timeOfDayBucket} />
+      <VideoPlayer onVideoStarted={() => setIsVideoStarted(true)} />
+      <AudioPlayer timeOfDayBucket={timeOfDayBucket} isStarted={true} />
       <AboutModal />
       <Chat />
     </div>

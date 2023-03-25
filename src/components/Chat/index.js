@@ -10,7 +10,7 @@ function Chat() {
   const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
-    const newSocket = io("https://untitled-mk034gxpv5k8.runkit.sh/");
+    const newSocket = io("https://watching-the-poppies-server.up.railway.app");
     setSocket(newSocket);
 
     newSocket.on("message", (message) => {
@@ -51,7 +51,6 @@ function Chat() {
       </button>
       {isExpanded && (
         <div className="chat">
-          <h2>Chat</h2>
           <div className="messages">
             {messages.map((message, index) => (
               <p key={index}>
@@ -61,13 +60,13 @@ function Chat() {
           </div>
           <input
             type="text"
-            placeholder="Enter your name"
+            placeholder="name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Type your message"
+            placeholder="message"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}

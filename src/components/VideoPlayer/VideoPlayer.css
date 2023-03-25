@@ -14,7 +14,7 @@
   height: 100%;
 }
 
-.video-player button {
+/* .video-player button {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -28,4 +28,4 @@
 
 .video-player button:hover {
   background-color: #555;
-}
+} */
